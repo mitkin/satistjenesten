@@ -7,7 +7,6 @@ font_filepath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
 font = aggdraw.Font('blue', font_filepath, size=56, opacity=200)
 pil_font = ImageFont.truetype(font_filepath, 90)
 gshhs_dir =  os.path.join(os.path.dirname(__file__), os.pardir, 'test_data', 'gshhs')
-gshhs_dir =  '/disk1/mikhaili/gshhs'
 
 def add_graticules_to_img(scene):
     cw = ContourWriterAGG(gshhs_dir)

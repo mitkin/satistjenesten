@@ -1,5 +1,6 @@
 from setuptools import setup
 from setuptools import find_packages
+import os
 
 requirements = ['numpy',
                 'netCDF4',
@@ -12,9 +13,14 @@ readme_contents = ""
 
 setup(
       name='satistjenesten',
+<<<<<<< HEAD
       version=0.5,
+=======
+>>>>>>> 8db32936baa71cb8039f880d4c2cb428e164797e
       author='Mikhail Itkin',
       description='Istjenesten satellite processing suite',
+      packages=['satistjenesten'],
+      data_files=[os.path.join(os.path.dirname(__file__), 'test_data', 'DroidSans.ttf')],
       long_description=readme_contents,
       install_requires=requirements,
       test_suite='tests',

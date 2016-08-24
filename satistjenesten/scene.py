@@ -8,6 +8,7 @@ from osgeo import gdal, osr
 from PIL import Image
 import numpy
 import pyresample as pr
+import netCDF4
 
 class SatBand(object):
     def __init__(self):
@@ -28,6 +29,8 @@ class GenericScene(object):
         self.area_def = None
         self.timestamp = None
         self.kwargs = kwargs
+        self.lons = None
+        self.lats = None
         self._swath_area_def = None
 
     def get_filehandle(self):
@@ -51,12 +54,12 @@ class GenericScene(object):
     def get_swath_area_def(self, lons_name, lats_name):
         if self._swath_area_def is None:
             try:
-                lons = self.filehandle.variables[lons_name][:]
-                lats = self.filehandle.variables[lats_name][:]
+                self.lons = self.filehandle.variables[lons_name][:]
+                self.lats = self.filehandle.variables[lats_name][:]
             except:
                 raise Exception('File does not contain latitude/longitude information')
 
-        swath_area_def = geometry.SwathDefinition(lons, lats)
+        swath_area_def = geometry.SwathDefinition(self.lons, self.lats)
         self._swath_area_def = swath_area_def
         self.area_def = swath_area_def
 
