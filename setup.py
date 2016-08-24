@@ -13,10 +13,7 @@ readme_contents = ""
 
 setup(
       name='satistjenesten',
-<<<<<<< HEAD
       version=0.5,
-=======
->>>>>>> 8db32936baa71cb8039f880d4c2cb428e164797e
       author='Mikhail Itkin',
       description='Istjenesten satellite processing suite',
       packages=['satistjenesten'],
