@@ -57,10 +57,10 @@ class NetcdfScene(GenericScene):
             bands_dict[band_name] = sat_band
         self.bands = bands_dict
 
-    def load(self):
+    def load(self, lons_name, lats_name):
         self.get_filehandle()
         self.get_bands()
-        self.get_swath_area_def('lon_h', 'lat_h')
+        self.get_swath_area_def(lons_name, lats_name)
 
 
 class OsisafAmsr2NetcdfScene(NetcdfScene):
